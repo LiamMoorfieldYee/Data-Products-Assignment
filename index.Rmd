@@ -1,0 +1,64 @@
+---
+title       : BAC Presentation
+subtitle    : Windmark BAC algorithm
+author      : Liam Moorfield-Yee
+job         : Student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Description of Program
+
+The program takes 3 inputs and calculates the BAC for a standard male using the Windmark BAC algorithm. 
+
+--- .class #id 
+
+## Inputs
+
+The variables are as follows:
+
+- drinks -> Standard Drinks Consumed 
+- weight -> Body Weight in pounds
+- time -> Time Elapsed Drinking in hours
+
+--- .class #id
+
+## Calculations
+
+The windmark algorithm calculates BAC by dividing total alcohol content consumed (g) by weight(g)*rm, where rm is the gender constant for males and is equal to .68. The ratio is then multiplied by 100, which returns BAC as a percentage, and adjusted for time elapsed.
+
+The resulting algorithm is:
+
+```{r, echo = TRUE}
+bac <- function(Drinks, weight, time){ (((as.numeric(Drinks)*14)/(as.numeric(weight)* 453.592 * 0.68))*100 - (as.numeric(time)*0.015))}
+```
+
+--- .class #id
+
+## Example
+
+The BAC for a 100 pound man who has had 2 drinks in the past hour is:
+
+```{r}
+(((2)*14)/(100* 453.592 * 0.68))*100 - (1*0.015)
+```
+
+--- .class #id
+
+## Significance
+
+This is a very simple algorithm that will can be used to help people better understand how drinking affects their bodies.
+
+--- .class #id
+
+## Thank You For Watching!!!
+
+--- .class #id
+
+
+
+
